@@ -1,25 +1,21 @@
-s = int(input("n:"))
-roman_dict = {
-        "I":1, 
-        "V":5,
-        "X":10, 
-        "L":50,
-        "C":100,
-        "D":500,
-        "M":1000
-        }
-prev_value = 0
-total = 0
-for letter in reversed(s):
-    value = roman_dict.get(letter) 
-    if value > prev_value:
-        total -= value
-    else:
-        total += value 
-    prev_value = value
-    print(total)
+
+class Vehicle:
+    def __init__(self, model, make, year):
+        self._model = model
+        self._make = make
+        self._make = year
+
+        
 
 
 
 
 
+
+
+
+
+
+# set_a = {'з', 'а', 'г', 'р', 'е', 'т', 'д', 'и', 'н', 'о', 'в'}  # множество A (Загретдинов)
+# set_b = {'т', 'и', 'м', 'у', 'р'}  # множество B (Тимур)
+# set_c = {'р', 'у', 'с', 'л', 'а', 'н', 'о', 'в', 'и', 'ч'}  # множество C (Русланович)

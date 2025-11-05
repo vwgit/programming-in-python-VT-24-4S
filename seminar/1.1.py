@@ -1,5 +1,11 @@
-a = int(input("Введите число n: "))
+while True:
+    try:
+        a = int(input("Введите число n: "))
+        break
+    except ValueError:
+        print("Ошибка: введите целое число!")
+
 if a % 2 == 0:
-    print("число четное")
+    print("Число чётное")
 else:
-    print("число нечетное")
+    print("Число нечётное")
