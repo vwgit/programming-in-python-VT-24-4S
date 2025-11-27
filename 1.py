@@ -1,3 +1,4 @@
+#1 вар 1 задание
 def fact(n):
 	if n <=1:
 		return 1
