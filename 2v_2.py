@@ -1,16 +1,18 @@
 import math
 
 def fact(n):
-	if n <= 1:
+	if n == 1:
 		return 1
-	return n * fact(n-1)
+	if n == 0:
+		return 1
+	return fact(n - 1)
 
-def recursion(i, n, x, sum):
+def recursion(i, n, x):
 	if i == n:
 		return x**i / (math.sqrt(fact(i) + i ** 3))
-	return sum + recursion(i + 1, n, x, sum)
+	return recursion(i + 1, n, x)
 
 x = int(input("Введите число x: "))
 i = int(input("Введите число i: "))
 n = int(input("Введите число n: "))
-print(recursion(i, n, x, 0))
+print(recursion(i, n, x))
