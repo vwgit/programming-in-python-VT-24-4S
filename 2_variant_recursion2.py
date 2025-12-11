@@ -17,4 +17,4 @@ def sum_of_squares_unique(n, seen = None):
 		return sum_of_squares_unique(rest, seen)
 
 n = 22345
-print(f"Результат: {sum_of_squares_unique(n)}.")
+print(f"Результат: {sum_of_squares_unique(n)}")
