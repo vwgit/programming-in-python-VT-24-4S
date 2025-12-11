@@ -1,6 +1,6 @@
 #5вар 2 задание(рекурсия)
 def collect_keys(d):
-	key = []
+	keys = []
 	def help(table):
 		for key, value in table.items():
 			keys.append(key)
