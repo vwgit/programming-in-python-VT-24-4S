@@ -10,13 +10,13 @@ import sys
 class CounterModel():
     def __init__(self):
         self.value = 0
-        self.subsribers = []
+        self.subscribers = []
 
-    def subscibe(self, callback):
-        self.subsribers.append(callback)
+    def subscribe(self, callback):
+        self.subscribers.append(callback)
 
     def notify(self):
-        for callback in self.subsribers:
+        for callback in self.subscribers:
             callback(self.value)
 
     def increment(self):
@@ -28,35 +28,28 @@ class MainWindow(QWidget):
         super().__init__()
         self.setWindowTitle("Наблюдатель")
         self.setGeometry(300, 300, 400, 150)
-        self.total = 0
         self.init_ui()
+        self.counter_model.subscribe(self.update_label)
 
     def init_ui(self):
         self.plus_one_button = QPushButton()
         self.plus_one_button.setText("+1")
-        self.plus_one_button.clicked.connect(self.update_subsribers)
+        self.counter_model = CounterModel()
+        self.plus_one_button.clicked.connect(self.counter_model.increment)
 
-        self.subsribers_count = QLabel()
-        self.subsribers_count.setText(f"Количество подписчиков: 0")
+        self.subscribers_label = QLabel("Количество: 0")
 
         grid = QGridLayout()
 
         grid.addWidget(self.plus_one_button, 0, 0, 1, 2)
-        grid.addWidget(self.subsribers_count, 1, 0, 1, 2)
+        grid.addWidget(self.subscribers_label, 1, 0, 1, 2)
 
         self.setLayout(grid)
 
-        self.counter_model = CounterModel()
-        self.counter_model.__init__()
 
+    def update_label(self, value):
+        self.subscribers_label.setText(f"Количество: {value}")
 
-    def update_subsribers(self):
-        self.total = self.total + 1
-        self.subsribers_count.setText(f"Количество подписчиков: {self.total}")
-        # self.counter_model.subscibe(self.counter_model.value)
-        # self.counter_model.increment()
-
-    
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
