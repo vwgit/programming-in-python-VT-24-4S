@@ -1,8 +1,14 @@
-def user_power(n, pow):
-	if pow < 1:
-		return 1
-	total = 1
-	total = total * n
-	return total * user_power(n, pow - 1)
+#def power(x, n):
+#	if n == 0:
+#		return 1
+#	return x * power(x, n - 1)
+#
+#print("2^3 = " + str(power(2, 3)))
 
-print("2^3 = " + str(user_power(2, 8)))
+def fact(n):
+	if n <= 1:
+		return 1
+	else:
+		return n * fact(n - 1)
+
+print(f"Результат факториал 5 = {fact(5)})")

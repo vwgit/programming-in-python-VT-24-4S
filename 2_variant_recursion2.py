@@ -12,7 +12,7 @@ def sum_of_squares_unique(n, seen = None):
 
 	if digit not in seen:
 		seen.add(digit)
-		return digit * digit + (sum_of_squares_unique(rest, seen))
+		return (digit * digit) + sum_of_squares_unique(rest, seen)
 	else:
 		return sum_of_squares_unique(rest, seen)
 
